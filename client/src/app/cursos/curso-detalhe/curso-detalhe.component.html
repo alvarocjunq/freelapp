@@ -1,0 +1,41 @@
+<div class='row container-app'>
+  
+  <form class="col s12 l12" [formGroup]="formulario" (ngSubmit)="save()">
+    <h5 class="center-align">{{curso.name}}</h5>
+    <div class="row">
+      <div class="input-field">
+        <input id="icon_prefix" formControlName="name" [(ngModel)]="curso.name" type="text" required class="validate">
+        <label for="icon_prefix" [class.active]="curso.name">Curso</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="icon_telephone" [(ngModel)]="curso.teacher" formControlName="teacher" required class="validate">
+        <label for="icon_telephone" [class.active]="curso.teacher">Professor</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="icon_telephone" formControlName="dateCreation" [(ngModel)]="curso.dateCreation" type="tel" required class="validate">
+        <label for="icon_telephone" [class.active]="curso.dateCreation">Data de Cadastro</label>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div>
+  <div class="fixed-action-btn buttons">
+    <a class="btn-floating btn-large waves-effect waves-light delete" (click)=" remover()" *ngIf="id !== '0'">
+        <i class="large material-icons red">delete</i>
+    </a>
+    <a class="btn-floating btn-large waves-effect waves-light" (click)="save()">
+      <i class="large material-icons blue darken-2">save</i>
+    </a>
+  </div>
+
+  <div class="fixed-action-btn button-back">
+    <a class="btn-floating btn-large waves-effect waves-light" (click)="voltar()">
+      <i class="large material-icons blue darken-2">arrow_back</i>
+    </a>
+  </div>
+</div>

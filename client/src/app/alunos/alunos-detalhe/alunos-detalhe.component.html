@@ -1,0 +1,46 @@
+<div class='row container-app'>
+  <form class="col s12 l12" [formGroup]="formulario" (ngSubmit)="save()">
+    <h5 class="center-align">{{aluno.name}}</h5>
+    <div class="row">
+      <div class="input-field">
+        <input id="icon_prefix" formControlName="name" [(ngModel)]="aluno.name" type="text" class="validate">
+        <label for="icon_prefix" [class.active]="aluno.name">Nome</label>
+      </div>
+    </div>
+    <div class="row">
+      <label>Curso</label>
+      <select class="browser-default" formControlName="cursoid">
+          <option selected disabled value="0">Selecione o Curso</option>
+          <option *ngFor="let curso of cursos" [value]="curso.id">{{curso.name}}</option>
+      </select>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="icon_telephone" formControlName="nascimento" [(ngModel)]="aluno.nascimento" type="text" class="validate">
+        <label for="icon_telephone" [class.active]="aluno.nascimento">Data de Nascimento</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input id="icon_telephone" formControlName="email" [(ngModel)]="aluno.email" type="text" class="validate">
+        <label for="icon_telephone" [class.active]="aluno.email">Email</label>
+      </div>
+    </div>
+  </form>
+</div>
+<div>
+  <div class="fixed-action-btn buttons">
+    <a class="btn-floating btn-large waves-effect waves-light delete" (click)=" remover()" *ngIf="id !== '0'">
+        <i class="large material-icons red">delete</i>
+    </a>
+    <a class="btn-floating btn-large waves-effect waves-light" (click)="save()">
+      <i class="large material-icons blue darken-2">save</i>
+    </a>
+  </div>
+
+  <div class="fixed-action-btn button-back">
+    <a class="btn-floating btn-large waves-effect waves-light" (click)="voltar()">
+      <i class="large material-icons blue darken-2">arrow_back</i>
+    </a>
+  </div>
+</div>

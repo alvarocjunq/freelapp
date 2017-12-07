@@ -1,0 +1,18 @@
+
+.input-field{
+    margin-top: 3rem;
+}
+
+.input-field .prefix ~ label{
+    margin-left: 2rem;
+}
+.input-field i {
+    cursor: pointer;
+}
+
+tr.collection-item:hover {
+    background-color: #ddd;
+}
+td {
+    cursor: pointer;
+}

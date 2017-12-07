@@ -1,0 +1,36 @@
+<div class="container-app">
+    <h5>Alunos</h5>
+    <form>
+        <div class="input-field col s12">
+            <i class="material-icons prefix" (click)="search(inputSearch.value)">search</i>
+            <input id="search" type="search" required class="validate" #inputSearch (keyup.enter)="search(inputSearch.value)">
+            <label for="icon_prefix" >Buscar Aluno</label>
+        </div>
+    </form>
+    <table class="striped" id="tabela">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>E-mail</th>
+                <th>Curso</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="collection-item" *ngFor="let aluno of alunos | paginate: { itemsPerPage: 6, currentPage: pages } " [routerLink]="['/alunos', aluno.id]">
+                <td>{{aluno.name}}</td>
+                <td>{{aluno.nascimento}}</td>
+                <td>{{aluno.email}}</td>
+                <td>{{aluno.curso}}</td>
+                <td><i class="material-icons" (click)="remover(aluno); $event.stopPropagation()">delete</i></td>
+            </tr>
+        </tbody>
+        <pagination-controls previousLabel="Voltar" nextLabel="Próximo" (pageChange)="pages = $event"></pagination-controls>
+    </table>
+</div>
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light" [routerLink]="['/alunos', 0]">
+      <i class="large material-icons blue darken-2">add</i>
+    </a>
+</div>
